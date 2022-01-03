@@ -7,6 +7,7 @@ module.exports = {
     "./src/components/Footer.jsx",
     "./src/components/Routes.jsx"
   ],
+  darkMode: 'class',
   theme: {
     extend: {},
   },

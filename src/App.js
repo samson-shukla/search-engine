@@ -1,15 +1,25 @@
 import React, { useState } from 'react';
+import { Routes, Route, Navigate } from "react-router-dom";
+
 import { Navbar } from "./components/Navbar";
 import { Footer } from "./components/Footer";
-import { Routes } from "./components/Routes";
+import { Results } from "../src/components/Results";
 
 const App = () => {
-    const {darkTheme, setDarkTheme} = useState(false);
+    const [darkTheme, setDarkTheme] = useState(true);
     return (
         <div className={darkTheme ? 'dark' : ''}>
             <div className='bg-gray-200 dark:bg-gray-900 dark:text-gray-200 min-h-screen'>
-                <Navbar />
-                <Routes />
+                <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
+                <div className="p-4">
+                    <Routes>
+                        <Route path="/" element={<Navigate to="/search" />} />
+                        <Route path="/search" element={<Results />} />
+                        <Route path="/images" element={<Results />} />
+                        <Route path="/news" element={<Results />} />
+                        <Route path="/videos" element={<Results />} />
+                    </Routes>
+                </div>
                 <Footer />
             </div>
         </div>
