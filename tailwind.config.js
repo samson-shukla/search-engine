@@ -5,7 +5,8 @@ module.exports = {
     "./src/global.css",
     "./src/components/Navbar.jsx",
     "./src/components/Footer.jsx",
-    "./src/components/Routes.jsx"
+    "./src/components/Routes.jsx",
+    "./src/components/Results.jsx"
   ],
   darkMode: 'class',
   theme: {
