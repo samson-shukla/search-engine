@@ -6,7 +6,9 @@ module.exports = {
     "./src/components/Navbar.jsx",
     "./src/components/Footer.jsx",
     "./src/components/Routes.jsx",
-    "./src/components/Results.jsx"
+    "./src/components/Results.jsx",
+    "./src/components/Search.jsx",
+    "./src/components/Links.jsx"
   ],
   darkMode: 'class',
   theme: {
