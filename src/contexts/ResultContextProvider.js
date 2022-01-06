@@ -15,8 +15,8 @@ export const ResultContextProvider = ({ children }) => {
             method: 'GET',
             headers: {
                 'x-rapidapi-host': 'google-search3.p.rapidapi.com',
-                'x-rapidapi-key': '9f7c7b4af3msh0e9d36692feabbdp17e303jsncff5324820e5'
-                // 'x-rapidapi-key': process.env.REACT_APP_API_KEY,
+                'x-rapidapi-key': process.env.REACT_APP_API_KEY,
+                // 'x-rapidapi-key': '9f7c7b4af3msh0e9d36692feabbdp17e303jsncff5324820e5'
             }
         });
 
