@@ -4,6 +4,7 @@ import ReactPlayer from 'react-player';
 
 import { useResultContext } from '../contexts/ResultContextProvider';
 import { Loading } from './Loading';
+import { DefaultContent } from "./DefaultContent";
 
 export const Results = () => {
     const {results, isLoading, getResults, searchTerm} = useResultContext();
@@ -15,12 +16,13 @@ export const Results = () => {
                 getResults(`/search/q=${searchTerm} videos`);
             }
             else{
-                getResults(`${location.pathname}/q=${searchTerm}&num50`);
+                getResults(`${location.pathname}/q=${searchTerm}&num30`);
             }
         }
     }, [searchTerm, location.pathname]);
 
     if(isLoading) return <Loading />;
+    if(searchTerm === '') return <DefaultContent />;
     
     switch (location.pathname) {
         case '/search':
@@ -54,19 +56,23 @@ export const Results = () => {
             case '/news':
                 return (
                     <div className="sm:px-56 lg:text-left text-justify flex flex-wrap justify-between items-center">
-                      {results?.map(({ links, id, source, title }) => (
+                      {results?.map(({ link, id, source, title, published }) => (
                         <div key={id} className="md:w-2/5 w-full mb-5 pl-2 border-dotted border-l-2 dark:border-sky-400 border-sky-600">
-                            <a href={links?.[0].href} target="_blank" rel="noreferrer" className='hover:underline'>
+                            <a href={link} target="_blank" rel="noreferrer" className='hover:underline'>
                                 <p className="text-lg dark:text-blue-300 text-blue-700">
                                     {title}
                                 </p>
                             </a>
-                            <div className='flex gap-4'>
+                            <div className='flex gap-4 text-sm'>
                                 <a href={source?.href} target='_blank' rel='noreferrer'>
                                     {source?.href}
                                 </a>
                             </div>
-                        
+                            <div className='flex gap-4 dark:text-blue-200 text-blue-500'>
+                                <a href={published} target='_blank' rel='noreferrer'>
+                                    {published}
+                                </a>
+                            </div>                        
                         </div>
                       ))}
                     </div>
@@ -85,5 +91,5 @@ export const Results = () => {
     
         default:
             return "ERROR! Link is Broken!";
-    }    
+    }
 }

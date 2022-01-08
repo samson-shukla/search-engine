@@ -8,12 +8,16 @@ const App = () => {
     const [darkTheme, setDarkTheme] = useState(true);
     return (
         <div className={darkTheme ? 'dark' : ''}>
-            <div className='bg-sky-50 dark:bg-gray-900 dark:text-gray-200 min-h-screen'>
-                <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
-                <div className='container mx-auto mt-5 mb-5 min-h-[65vh]'>
+            <div className='relative bg-sky-50 dark:bg-gray-900 dark:text-gray-200 min-h-screen'>
+                <div>
+                    <Navbar darkTheme={darkTheme} setDarkTheme={setDarkTheme}/>
+                </div>                
+                <div className='container mx-auto mt-5 mb-5'>
                     <AppRoutes />
                 </div>
-                <Footer />
+                <div className='absolute bottom-0 w-full'>
+                    <Footer />
+                </div>                
             </div>
         </div>
     )

@@ -8,7 +8,8 @@ module.exports = {
     "./src/components/Routes.jsx",
     "./src/components/Results.jsx",
     "./src/components/Search.jsx",
-    "./src/components/Links.jsx"
+    "./src/components/Links.jsx",
+    "./src/components/DefaultContent.jsx"
   ],
   darkMode: 'class',
   theme: {

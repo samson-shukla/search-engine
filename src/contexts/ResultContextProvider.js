@@ -14,13 +14,14 @@ export const ResultContextProvider = ({ children }) => {
         const response = await fetch(`${baseUrl}${type}`, {
             method: 'GET',
             headers: {
+                "x-proxy-location": "IN",
                 'x-rapidapi-host': 'google-search3.p.rapidapi.com',
-                'x-rapidapi-key': process.env.REACT_APP_API_KEY,
-                // 'x-rapidapi-key': '9f7c7b4af3msh0e9d36692feabbdp17e303jsncff5324820e5'
+                'x-rapidapi-key': process.env.REACT_APP_API_KEY
             }
         });
 
         const data = await response.json();
+        console.log(data);
 
         if(type.includes('/news')){
             setResults(data.entries);
